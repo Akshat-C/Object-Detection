@@ -1,0 +1,33 @@
+
+.heading
+{
+font-size: 23px;
+width: 100%;
+margin: 0px;
+}
+
+#status
+{
+font-size: 18px;
+}
+
+body {
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+canvas {
+    background-color: cornflowerblue;
+    margin-top: 50px;
+    border: 1px groove red;
+    border-radius: 20px;
+    animation-name: c_boxshadow;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes c_boxshadow {
+     from{box-shadow: 2px 2px 70px yellow;}
+     to{box-shadow: 2px 2px 70px lightgreen;}
+}
