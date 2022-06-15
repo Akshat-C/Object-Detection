@@ -1,5 +1,11 @@
 status1 = "";
-
+object = [];
+recx = 0;
+recy = 0;
+recw = 0;
+rech = 0;
+recn = 0;
+recp = 0;
 function preload()
 {
     img = loadImage("dog_cat.jpg");
@@ -29,21 +35,31 @@ function gotResults(error, results)
     } else 
     {
         console.log(results);
+        object = results;
     }
 }
 
 function draw()
 {
     image(img, 0, 0, 550, 500);
-    fill("red");
-    text("dog", 70, 90);
-    noFill();
-    stroke("red");
-    rect(50, 70, 400, 300);
 
-    fill("red");
-    text("cat", 260, 130);
-    noFill();
-    stroke("red");
-    rect(250, 110, 400, 300);
+    if (status1 != "")
+    {
+        for (i = 0; i < object.length; i++)
+        {
+        recx = object[i].x;
+        recy = object[i].y;
+        recw = object[i].width;
+        rech = object[i].height;
+        recn = object[i].label;
+        recp = object[i].confidence; 
+        document.getElementById("status").innerHTML = "Objects Detetced";
+        fill("red");
+        percentage = floor(recp*100)
+        text(recn +" "+percentage+"%", recx + 15, recy + 15);
+        noFill();
+        stroke("red");
+        rect(recx-120, recy, recw, rech);
+        }
+    }
 }
